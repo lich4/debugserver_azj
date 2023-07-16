@@ -36,11 +36,6 @@
     <true/>
     <key>run-unsigned-code</key>
     <true/>
-    <key>seatbelt-profiles</key>
-    <array>
-        <string>debugserver</string>
-        <string>gputoolsd</string>
-    </array>
     <key>task_for_pid-allow</key>
     <true/>
 </dict>

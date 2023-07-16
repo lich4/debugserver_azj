@@ -10,8 +10,8 @@ THEOS_PLATFORM_DEB_COMPRESSION_LEVEL=9
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = debugserver_azj
-dbgsysapp_FILES = main.xm
-dbgsysapp_CFLAGS = -fobjc-arc
+debugserver_azj_FILES = main.xm
+debugserver_azj_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

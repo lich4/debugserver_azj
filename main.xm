@@ -66,8 +66,8 @@ static int last_inst_time = 0;
 }
 
 %ctor {
+    NSLog(@"debugserver_azj init");
     _SMJobSubmit = dlsym(RTLD_DEFAULT, "SMJobSubmit");
     _CFPropertyListCreateData = dlsym(RTLD_DEFAULT, "CFPropertyListCreateData");
 }
 
-// 安装tweak后需插拔一次usb
