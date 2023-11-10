@@ -1,3 +1,16 @@
+## 说明
+
+安装本插件后，可以用Xcode调试任意iOS进程，相关帖子见<https://www.52pojie.cn/thread-1808827-1-1.html>。(只支持有根越狱,iOS9-iOS15已测试过)
+
+(This tweak is used to debug any iOS process with XCode)  
+
+* 安装完本插件需要重新插拔USB，以便注入到lockdownd生效。  
+* 若App有反调试，需要先想办法去除反调试  
+* 若调试老型号手机出现Jetsam相关错误，为调试时内存占用过大被系统kill，需要开发tweak使用memorystatus_control修改下进程权限。这种情况笔者在分析iOS10的SpringBoard界面元素时遇到过  
+* 附加时间: iOS15 > iOS13/14 > iOS12 ... ；iOS15上附加进程速度会比较慢，笔者测附加Safari在2分钟左右  
+* XCode12.x附加调试iOS15的SpringBoard会因为时间过长而导致桌面被系统kill，但XCode13.x却可以  
+* 本插件只增强附加调试，会影响XCode调试普通App，所以代码中设置last_inst_time用于记录IPA安装时间避开XCode安装调试。(其实也可以在设置里增加开关来控制是否root身份启动debugserver不过那样更麻烦一些)。
+
 ## 生成可用的debugserver
 
 只需生成一次,确认debugserver满足以下条件直接跳过这一步
