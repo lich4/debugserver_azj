@@ -1,6 +1,6 @@
 ## 说明
 
-安装本插件后，可以用Xcode调试任意iOS进程，相关帖子见<https://www.52pojie.cn/thread-1808827-1-1.html>。(只支持有根越狱,iOS9-iOS15已测试过)
+安装本插件后，可以用Xcode调试任意iOS进程，相关帖子见<https://www.52pojie.cn/thread-1808827-1-1.html>。(支持无根越狱,支持arm64e,iOS9-iOS15已测试过)
 
 (This tweak is used to debug any iOS process with XCode)  
 
@@ -54,4 +54,13 @@ kernel(AppleMobileFileIntegrity)[0] <Notice>: AMFI: code signature validation fa
 ## ida查看进程列表
 
 todo
+
+## 编译 
+
+```bash
+make package
+make -f MakefileRootless package  # rootless
+```
+
+注意rootless的包为`***_iphoneos-arm64.deb`
 

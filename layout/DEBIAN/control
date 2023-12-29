@@ -1,6 +1,6 @@
 Package: debugserver.azj
 Name: debugserver.azj
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: Debug any process with XCode https://github.com/lich4/debugserver_azj
 Maintainer: chaoge

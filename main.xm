@@ -8,6 +8,12 @@ static void* _SMJobSubmit = (void*)nouse;
 static void* _CFPropertyListCreateData = (void*)nouse;
 static int last_inst_time = 0;
 
+#ifdef THEOS_PACKAGE_INSTALL_PREFIX
+#define ROOTDIR THEOS_PACKAGE_INSTALL_PREFIX
+#else
+#define ROOTDIR
+#endif
+
 %hookf(CFDataRef, _CFPropertyListCreateData, CFAllocatorRef allocator, CFPropertyListRef propertyList, CFPropertyListFormat format, CFOptionFlags options, CFErrorRef* error) {
     if (CFGetTypeID(propertyList) == CFDictionaryGetTypeID()) {
         NSDictionary* info = (__bridge NSDictionary*)propertyList;
@@ -33,13 +39,13 @@ static int last_inst_time = 0;
                 if (mv <= 8) {
                     // not implement
                 } else if (mv == 9 || mv == 10) {
-                    margv[0] = @"/usr/bin/debugserver_azj10";
+                    margv[0] = @(ROOTDIR "/usr/bin/debugserver_azj10");
                 } else if (mv == 11 || mv == 12) {
-                    margv[0] = @"/usr/bin/debugserver_azj12";
+                    margv[0] = @(ROOTDIR "/usr/bin/debugserver_azj12");
                 } else if (mv == 13 || mv == 14) {
-                    margv[0] = @"/usr/bin/debugserver_azj14";
+                    margv[0] = @(ROOTDIR "/usr/bin/debugserver_azj14");
                 } else if (mv >= 15) { // XCode 12+ is need for iOS15  // not test on iOS16+
-                    margv[0] = @"/usr/bin/debugserver_azj15"; 
+                    margv[0] = @(ROOTDIR "/usr/bin/debugserver_azj15"); 
                 }
                 mjob[@"UserName"] = @"root";
                 mjob[@"ProgramArguments"] = margv;
@@ -48,13 +54,13 @@ static int last_inst_time = 0;
                 if (mv <= 8) {
                     // not implement
                 } else if (mv == 9 || mv == 10) {
-                    margv[0] = @"/usr/bin/gputoolsd_azj10";
+                    margv[0] = @(ROOTDIR "/usr/bin/gputoolsd_azj10");
                 } else if (mv == 11 || mv == 12) {
-                    margv[0] = @"/usr/bin/gputoolsd_azj12";
+                    margv[0] = @(ROOTDIR "/usr/bin/gputoolsd_azj12");
                 } else if (mv == 13 || mv == 14) {
-                    margv[0] = @"/usr/bin/gputoolsd_azj14";
+                    margv[0] = @(ROOTDIR "/usr/bin/gputoolsd_azj14");
                 } else if (mv >= 15) { // not test on iOS16+
-                    margv[0] = @"/usr/bin/gputoolsd_azj15"; 
+                    margv[0] = @(ROOTDIR "/usr/bin/gputoolsd_azj15"); 
                 }
                 mjob[@"UserName"] = @"root";
                 mjob[@"ProgramArguments"] = margv;
@@ -66,6 +72,7 @@ static int last_inst_time = 0;
 }
 
 %ctor {
+    // launchctl start com.apple.mobile.lockdown
     NSLog(@"debugserver_azj init");
     _SMJobSubmit = dlsym(RTLD_DEFAULT, "SMJobSubmit");
     _CFPropertyListCreateData = dlsym(RTLD_DEFAULT, "CFPropertyListCreateData");
