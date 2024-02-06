@@ -64,3 +64,6 @@ make -f MakefileRootless package  # rootless
 
 注意rootless的包为`***_iphoneos-arm64.deb`
 
+
+![](https://raw.githubusercontent.com/lich4/debugserver_azj/main/screenshot.png)
+
