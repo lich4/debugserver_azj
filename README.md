@@ -67,3 +67,5 @@ make -f MakefileRootless package  # rootless
 
 ![](https://raw.githubusercontent.com/lich4/debugserver_azj/main/screenshot.png)
 
+
+$${\color{red}Red}$$
