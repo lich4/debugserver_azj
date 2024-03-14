@@ -1,7 +1,7 @@
 
 ## Instruction
 
-This tweak is used to debug any iOS process with XCode, support iOS9-16, arm64/arm64e, rootful/rootless jailbreak
+This tweak is used to debug any iOS process with XCode, support iOS9-16, arm64/arm64e, rootful/rootless jailbreak. You can use debugserver_azj to develope/debug tweaks with XCode easily, same for tool/daemon/app/preference_bundle/xpc_service type project development.
 * Please replug USB cable to take effect after installing the tweak.
 * If any anti-debug tricks in the process, then you should remove it first.
 * If process crash and caused by Jetsam, fix with memorystatus_control first.
