@@ -1,4 +1,6 @@
 
+For a fully integrated debugging tool with Xcode, see [https://github.com/lich4/JBDev](https://github.com/lich4/JBDev).
+
 ## Instruction
 
 This tweak is used to debug any iOS process with XCode, support iOS9-16, arm64/arm64e, rootful/rootless jailbreak. You can use debugserver_azj to develope/debug tweaks with XCode easily, same for tool/daemon/app/preference_bundle/xpc_service type project development.
